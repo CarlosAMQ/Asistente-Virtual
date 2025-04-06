@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot de Citas Médicas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Barra superior con el texto -->
+        <div id="chat-header">
+            <div class="header-left">
+                <img src="imagenes/icono chatbot.jpeg" alt="Clínica Pediátrica" class="avatar" />
+                <span>MEDIBOT  ASISTENTE  VIRTUAL  PEDIÁTRICO - EN LÍNEA</span>
+            </div>
+            <button id="close-chat" onclick="closeChat()">✖</button>
+        </div>
+        
+
+        <!-- Área del chat -->
+        <div id="chat-box" class="chat-box"></div>
+
+        <!-- Entrada de texto -->
+        <div id="input-container">
+            <input type="text" id="user-input" placeholder="Escribe tu mensaje aquí..." />
+            <button id="send-button">Enviar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
