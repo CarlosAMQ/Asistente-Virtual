@@ -5,32 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Asistente Virtual Pediátrico</title>
   <style>
-    body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #fff; }
-    header { background: #77c1c9; padding: 10px 20px; color: #000; display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
-    nav { text-align: center; margin: 30px 0; font-weight: 500; letter-spacing: 2px; }
-    nav a { margin: 0 15px; text-decoration: none; color: #000; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f1faff;
+    }
 
-    
+    header {
+      background-color: #c6e6ea;
+      color: #000;
+      text-align: center;
+      padding: 10px 0;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    nav {
+      text-align: center;
+      margin: 30px 0;
+      font-weight: 500;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #000;
+    }
+
     .asistente-container {
       background: linear-gradient(to right, #d9e7e9, #ffe5dc);
-      margin: 0 auto;
+      margin: 0 auto 50px;
       border-radius: 20px;
       padding: 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       max-width: 900px;
-      margin-bottom: 50px;
     }
+
     .asistente-texto {
       max-width: 50%;
     }
+
     .asistente-img {
       width: 200px;
       height: auto;
       background: #ccc;
       border-radius: 50%;
-      /* Imagen del robot aquí */
     }
 
     .pregunta-box input {
@@ -40,6 +62,7 @@
       border: 1px solid #aaa;
       margin-right: 10px;
     }
+
     .pregunta-box button {
       background: lime;
       padding: 10px 20px;
@@ -66,36 +89,44 @@
       margin: 0 auto;
       padding: 40px 20px;
     }
+
     .info-section h2 {
       font-size: 24px;
       text-align: center;
       letter-spacing: 5px;
+      color: #267c9c;
     }
+
     .info-section .content {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-top: 30px;
     }
+
     .info-section .text {
       width: 55%;
       line-height: 1.6;
+      color: #333;
     }
+
     .info-section .image {
       width: 40%;
       height: 200px;
       background: #ddd;
       border-radius: 15px;
-      /* Imagen niños y robot aquí */
     }
 
     .clientes {
       text-align: center;
       padding: 50px 20px;
     }
+
     .clientes h3 {
       letter-spacing: 2px;
+      color: #267c9c;
     }
+
     .testimonial {
       background: linear-gradient(to right, #67c7cc, #aadcf0);
       margin: 30px auto;
@@ -106,43 +137,46 @@
     }
 
     footer {
-      background: #f2f2f2;
+      background-color: #c6e6ea;
       padding: 30px 20px;
       display: flex;
       justify-content: space-around;
       font-size: 14px;
       flex-wrap: wrap;
     }
+
     footer div {
       margin-bottom: 15px;
     }
-    footer p { margin: 5px 0; }
+
+    footer p {
+      margin: 5px 0;
+    }
+
     .footer-bottom {
       text-align: center;
-      background: #e0e0e0;
+      background: #b5d8de;
       padding: 10px;
       font-size: 13px;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <div>
-      Teléfono: 81 0000 0000 &nbsp;&nbsp;|&nbsp;&nbsp; Whatsapp: (812) 000 0000 &nbsp;&nbsp;|&nbsp;&nbsp; 📧 Correo: loren@LOENISPUN.com
-    </div>
+    Teléfono: 81 0000 0000 &nbsp;&nbsp;|&nbsp;&nbsp; Whatsapp: (812) 000 0000 &nbsp;&nbsp;|&nbsp;&nbsp; 📧 Correo: loren@LOENISPUN.com
   </header>
+
   <nav>
     <a href="Principal.html">Inicio</a>
-    <a href="Quienes-somos.html">Quienes somos?</a>
+    <a href="Quienes-somos.html">¿Quiénes somos?</a>
     <span style="float:right; margin-right: 20px;">⤴</span>
   </nav>
 
   <section class="asistente-container">
-    <div class="asistente-img">
-      
-    </div>
+    <div class="asistente-img"></div>
     <div class="asistente-texto">
-        <img src="IMAGENESWEB/ASISTENTEPNG.png" alt="Asistente" style="position: absolute; top: 100px; left: 200px;" width="450px">
+      <img src="IMAGENESWEB/ASISTENTEPNG.png" alt="Asistente" style="position: absolute; top: 100px; left: 200px;" width="450px">
       <h2>Prueba Nuestro Asistente Virtual</h2>
       <div class="pregunta-box">
         <input type="text" placeholder="Haz una Pregunta">
@@ -159,7 +193,7 @@
 
   <section class="info-section">
     <h2>INNOVANDO LA FORMA DE SERVIR</h2>
-    <img src="IMAGENESWEB/ASISTENTE-AMIGO.jpeg" alt="Asistente" style="position: absolute; top: 650px; left: 780px;" width="250px" >
+    <img src="IMAGENESWEB/ASISTENTE-AMIGO.jpeg" alt="Asistente" style="position: absolute; top: 650px; left: 780px;" width="250px">
     <div class="content">
       <div class="text">
         En nuestra clínica pediátrica, combinamos experiencia y tecnología para brindar la mejor atención a tu hijo.
@@ -167,9 +201,7 @@
         orientación sobre el cuidado infantil, todo de manera rápida y sencilla. Porque tu tranquilidad es nuestra prioridad,
         seguimos innovando para estar siempre cerca de ti. 💙
       </div>
-      <div class="image">
-    
-      </div>
+      <div class="image"></div>
     </div>
   </section>
 
@@ -195,8 +227,8 @@
     </div>
     <div>
       <strong>CONTÁCTANOS</strong>
-      <p>Cobertura en: Monterrey, Mexico</p>
-      <p>E-mail: loren@loenis pun.com</p>
+      <p>Cobertura en: Monterrey, México</p>
+      <p>E-mail: loren@loenispun.com</p>
       <p>Teléfono: 81 0000 0000</p>
     </div>
   </footer>
@@ -204,5 +236,30 @@
   <div class="footer-bottom">
     Copyright © 2025 &nbsp; | &nbsp; S.A. DE C.V. - Aviso de privacidad &nbsp; | &nbsp; Términos y Condiciones
   </div>
+
+  <script>
+    // Redirige al hacer clic en los botones de sugerencias
+    document.querySelectorAll('.sugerencias button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const pregunta = encodeURIComponent(btn.innerText.trim());
+        window.location.href = `/Asistente-Virtual/index.html?pregunta=${pregunta}`;
+      });
+    });
+
+    // Enviar solo si el input tiene texto
+    const inputPregunta = document.querySelector('.pregunta-box input');
+    const botonEnviar = document.querySelector('.pregunta-box button');
+
+    botonEnviar.addEventListener('click', () => {
+      const texto = inputPregunta.value.trim();
+      if (texto !== '') {
+        const pregunta = encodeURIComponent(texto);
+        window.location.href = `/Asistente-Virtual/index.html?pregunta=${pregunta}`;
+      } else {
+        alert('Por favor, escribe una pregunta antes de enviar.');
+      }
+    });
+  </script>
+
 </body>
 </html>
