@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Medibot Asistente Pediátrico</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <script>
+        const USER_AVATAR = "{{ url_for('static', filename='imagenes/icono-usuario.jpeg') }}";
+        const BOT_AVATAR = "{{ url_for('static', filename='imagenes/icono-chatbot.jpeg') }}";
+      </script>      
+    <div class="chat-container">
+        <!-- Barra superior con el texto -->
+        <div id="chat-header">
+            <div class="header-left">
+                <img src="{{ url_for('static', filename='imagenes/icono-chatbot.jpeg') }}" class="avatar">
+
+                <span>MEDIBOT  ASISTENTE  VIRTUAL  PEDIÁTRICO - EN LÍNEA</span>
+            </div>
+            <button id="close-chat" onclick="closeChat()">✖</button>
+        </div>
+        
+
+        <!-- Área del chat -->
+        <div id="chat-box" class="chat-box"></div>
+
+        <!-- Entrada de texto -->
+        <div id="input-container">
+            <input type="text" id="user-input" placeholder="Escribe tu mensaje aquí..." />
+            <button id="send-button">Enviar</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
