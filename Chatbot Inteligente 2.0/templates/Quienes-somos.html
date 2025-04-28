@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¿Quiénes somos? - LorenISPUN</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilosPrincipal.css') }}"> <!-- Opcional si usas CSS externo -->
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f1faff;
+    }
+
+    header {
+      background-color: #c6e6ea;
+      color: #000;
+      text-align: center;
+      padding: 10px 0;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #267c9c;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #333;
+      text-align: justify;
+    }
+
+    .asistente {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .asistente img {
+      width: 150px;
+      height: auto;
+    }
+
+    footer {
+      background-color: #c6e6ea;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    nav {
+      text-align: center;
+      margin: 30px 0;
+      font-weight: 500;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Teléfono: 81 0000 0000 &nbsp;&nbsp;|&nbsp;&nbsp; Whatsapp: (812) 000 0000 &nbsp;&nbsp;|&nbsp;&nbsp; 📧 Correo: loren@LORENISPUN.com
+  </header>
+
+  <nav>
+    <a href="{{ url_for('principal') }}">Inicio</a>
+    <a href="{{ url_for('quienes_somos') }}">¿Quiénes somos?</a>
+    <span style="float:right; margin-right: 20px;">⤴</span>
+  </nav>
+
+  <div class="container">
+    <h1>¿Quiénes somos?</h1>
+    <p>
+      <strong>Dra. Loren</strong> es una pediatra con vocación, comprometida con el bienestar físico y emocional de tus hijos. Con años de experiencia en la atención infantil, su enfoque combina el conocimiento médico con la calidez humana, brindando una atención cercana y profesional.
+    </p>
+    <p>
+      En su consulta, la Dra. Loren ha incorporado herramientas modernas para acompañar a las familias de forma más dinámica. Por eso ha creado <strong>LorenISPUN</strong>, una iniciativa que combina la medicina pediátrica con tecnología amigable, para ofrecer información y seguimiento de manera accesible.
+    </p>
+    <p>
+      Como parte de esta propuesta, también cuentas con un <strong>asistente virtual</strong> que responde preguntas básicas sobre salud infantil, recordatorios y consejos generales. Esta herramienta no sustituye la consulta médica, pero es un apoyo adicional para madres, padres y cuidadores.
+    </p>
+
+    <div class="asistente">
+      <img src="{{ url_for('static', filename='IMAGENESWEB/ASISTENTEPNG.png') }}" alt="Asistente virtual de la Dra. Loren">
+      <p style="margin-top: 10px; font-style: italic; color: #555;">Tu acompañante virtual para dudas frecuentes</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 LorenISPUN - Todos los derechos reservados
+  </footer>
+
+</body>
+</html>
