@@ -159,6 +159,94 @@
       padding: 10px;
       font-size: 13px;
     }
+    .testimonial-carousel {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 10px;
+}
+
+.carousel-track {
+  display: inline-flex;
+  gap: 20px;
+  padding: 10px;
+}
+
+.carousel-track .testimonial {
+  display: inline-block;
+  width: 300px;
+  background: linear-gradient(to right, #67c7cc, #aadcf0);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: left;
+  font-size: 15px;
+  vertical-align: top;
+  white-space: normal; /* <- importante */
+  overflow: hidden;
+}
+
+
+.stars {
+  color: gold;
+  font-size: 18px;
+}
+
+.opinion-form {
+  margin-top: 30px;
+  background: #f0f8ff;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.opinion-form input,
+.opinion-form textarea {
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  font-family: inherit;
+  width: 100%;
+}
+
+.opinion-form button {
+  background: #267c9c;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.star-rating {
+  display: flex;
+  gap: 5px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.star-rating .star {
+  color: lightgray;
+}
+
+.star-rating .star.selected,
+.star-rating .star.hover {
+  color: gold;
+}
+ 
+.opinion {
+  border-radius: 15px;
+  padding: 1.5rem;
+  background: linear-gradient(to right, #aee1f9, #b5e4f5);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 300px;
+  word-wrap: break-word;
+}
+
   </style>
 </head>
 <body>
@@ -208,13 +296,49 @@
 
   <section class="clientes">
     <h3>NUESTROS CLIENTES</h3>
-    <div>🤝</div>
-    <div class="testimonial">
-      <strong>Mariana López ⭐⭐⭐⭐⭐</strong><br>
-      "Excelente atención y calidez. El pediatra siempre resuelve nuestras dudas con paciencia, y ahora con el asistente virtual,
-      es aún más fácil obtener información rápida. ¡Muy recomendado!"
+    <div class="testimonial-carousel">
+      <div class="carousel-track">
+        <div class="testimonial">
+          <strong>Mariana López</strong><br>
+          <span class="stars">⭐⭐⭐⭐⭐</span><br>
+          "Excelente atención y calidez. El pediatra siempre resuelve nuestras dudas con paciencia, y ahora con el asistente virtual,
+          es aún más fácil obtener información rápida. ¡Muy recomendado!"
+        </div>
+        <div class="testimonial">
+          <strong>Carlos Méndez</strong><br>
+          <span class="stars">⭐⭐⭐⭐</span><br>
+          "Muy buena atención. El sistema virtual ayuda bastante para resolver dudas en horarios fuera de consulta."
+        </div>
+        <div class="testimonial">
+          <strong>Ana Rivera</strong><br>
+          <span class="stars">⭐⭐⭐⭐⭐</span><br>
+          "Me encantó el asistente, muy útil y fácil de usar. Gran idea para las mamás ocupadas."
+        </div>
+        <div class="testimonial">
+          <strong>Ana Rivera</strong><br>
+          <span class="stars">⭐⭐⭐⭐⭐</span><br>
+          "Me encantó el asistente, muy útil y fácil de usar. Gran idea para las mamás ocupadas."
+        </div>
+      </div>
     </div>
+  
+    <form class="opinion-form">
+      <h4>Agrega tu opinión</h4>
+      <input type="text" placeholder="Tu nombre" required>
+      
+      <div class="star-rating">
+        <span class="star" data-value="1">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star" data-value="3">★</span>
+        <span class="star" data-value="4">★</span>
+        <span class="star" data-value="5">★</span>
+      </div>
+      
+      <textarea placeholder="Escribe tu experiencia..." required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
   </section>
+  
 
   <footer>
     <div>
@@ -260,6 +384,41 @@
         alert('Por favor, escribe una pregunta antes de enviar.');
       }
     });
+
+    const stars = document.querySelectorAll('.star-rating .star');
+  let rating = 0;
+
+  stars.forEach(star => {
+    star.addEventListener('mouseover', () => {
+      const val = parseInt(star.dataset.value);
+      stars.forEach(s => s.classList.toggle('hover', parseInt(s.dataset.value) <= val));
+    });
+
+    star.addEventListener('mouseout', () => {
+      stars.forEach(s => s.classList.remove('hover'));
+    });
+
+    star.addEventListener('click', () => {
+      rating = parseInt(star.dataset.value);
+      stars.forEach(s => s.classList.toggle('selected', parseInt(s.dataset.value) <= rating));
+    });
+  });
+
+  // Formulario
+  document.querySelector('.opinion-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const nombre = e.target.querySelector('input').value.trim();
+    const texto = e.target.querySelector('textarea').value.trim();
+
+    if (nombre && texto && rating > 0) {
+      alert(`Gracias ${nombre} por tu opinión de ${rating} estrella(s)`);
+      e.target.reset();
+      stars.forEach(s => s.classList.remove('selected'));
+      rating = 0;
+    } else {
+      alert('Por favor, llena todos los campos y selecciona una calificación.');
+    }
+  });
   </script>
   
 
