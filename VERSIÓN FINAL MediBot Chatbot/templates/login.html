@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Personal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos-login.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="fondo-azul"></div>
+
+  <div class="login-container">
+    <h2>👨‍⚕️ Acceso al Personal</h2>
+    {% if error %}
+    <p style="color: crimson; font-weight: bold;">{{ error }}</p>
+    {% endif %}
+
+    <form onsubmit="return mostrarCargando(event)" method="POST" action="{{ url_for('login') }}">
+      
+      <div class="input-group">
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" name="correo" placeholder="usuario@clinica.com" required oninput="validarCampo(this)">
+      </div>
+
+      <div class="input-group password-group">
+        <label for="password">Contraseña</label>
+        <div class="password-wrapper">
+          <input type="password" id="password" name="password" placeholder="••••••••" required oninput="validarCampo(this)">
+          <span class="toggle-password" onclick="togglePassword()">👁️</span>
+        </div>
+      </div>
+
+      <button type="submit" id="login-btn">
+        <span id="btn-texto">Ingresar</span>
+      </button>
+
+      <p class="note">Acceso exclusivo para personal autorizado</p>
+    </form>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const input = document.getElementById('password');
+      input.type = input.type === 'password' ? 'text' : 'password';
+    }
+
+    function validarCampo(input) {
+      if (input.value.trim() === '') {
+        input.style.borderColor = 'crimson';
+      } else {
+        input.style.borderColor = 'seagreen';
+      }
+    }
+
+    function mostrarCargando(event) {
+      const usuario = document.getElementById('usuario');
+      const password = document.getElementById('password');
+      if (usuario.value.trim() === '' || password.value.trim() === '') {
+        alert("Por favor, completa todos los campos.");
+        return false;
+      }
+
+      const boton = document.getElementById('login-btn');
+      const texto = document.getElementById('btn-texto');
+
+      texto.innerHTML = 'Validando...';
+      boton.disabled = true;
+      boton.style.opacity = 0.7;
+
+      // Simulación de carga: continúa después de 1.5 segundos
+      setTimeout(() => {
+        texto.innerHTML = 'Ingresar';
+        boton.disabled = false;
+        boton.style.opacity = 1;
+        document.forms[0].submit(); // envía el formulario manualmente
+      }, 1500);
+
+      return false; // evita el envío automático para esperar la animación
+    }
+  </script>
+
+</body>
+</html>
+
