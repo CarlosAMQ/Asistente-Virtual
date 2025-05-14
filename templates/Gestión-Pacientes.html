@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestión de Pacientes - Clínica Pediátrica</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles2.css') }}">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Gestión de Pacientes</h1>
+
+    <!-- Botón para volver al formulario -->
+    <a href="{{ url_for('Formulario_Citas') }}" class="boton-link">← Volver al formulario</a>
+
+    <!-- Campo de búsqueda -->
+    <input type="text" id="buscar" placeholder="Buscar paciente..." />
+    
+    <!-- Botón para crear paciente-->
+    <button id="btn-nuevo-paciente" class="boton-link">+ Nuevo paciente</button>
+
+    <!-- Tabla de pacientes -->
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Fecha y hora</th>
+          <th>Última cita</th>
+          <th>Motivo</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-pacientes">
+        <!-- Pacientes se cargan desde JS -->
+      </tbody>
+    </table>
+  </div>
+
+
+<!--Formulario-->
+  <div id="modal-paciente" class="modal oculto">
+    <div class="modal-contenido">
+      <h3>Nuevo Paciente</h3>
+      <form id="form-paciente">
+        <label>Nombre completo:</label>
+        <input type="text" id="nombre-nuevo" required />
+        
+        <label>Edad:</label>
+        <input type="number" id="edad-nuevo" required />
+  
+        <label>Fecha y hora de cita:</label>
+        <input type="datetime-local" id="cita-nueva" required />
+  
+        <label>Médico:</label>
+        <input type="text" id="medico-nuevo" required />
+  
+        <label>Tipo de consulta:</label>
+        <select id="estado-nuevo" required>
+          <option value="">Seleccione</option>
+          <option>Revisión</option>
+          <option>Urgencia</option>
+          <option>Vacunación</option>
+          <option>Control</option>
+        </select>
+  
+        <button type="submit">Guardar paciente</button>
+        <button type="button" id="cancelar" class="cancelar">Cancelar</button>
+      </form>
+    </div>
+  </div>
+  
+
+  <script src="{{ url_for('static', filename='js/pacientes.js') }}"></script>
+</body>
+</html>

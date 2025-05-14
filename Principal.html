@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asistente Virtual Pediátrico</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f1faff;
+    }
+
+    header {
+      background-color: #c6e6ea;
+      color: #000;
+      text-align: center;
+      padding: 10px 0;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    nav {
+      text-align: center;
+      margin: 30px 0;
+      font-weight: 500;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #000;
+    }
+
+    .asistente-container {
+      background: linear-gradient(to right, #d9e7e9, #ffe5dc);
+      margin: 0 auto 50px;
+      border-radius: 20px;
+      padding: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 900px;
+    }
+
+    .asistente-texto {
+      max-width: 50%;
+    }
+
+    .asistente-img {
+      width: 200px;
+      height: auto;
+      background: #ccc;
+      border-radius: 50%;
+    }
+
+    .pregunta-box input {
+      padding: 10px;
+      width: 250px;
+      border-radius: 20px;
+      border: 1px solid #aaa;
+      margin-right: 10px;
+    }
+
+    .pregunta-box button {
+      background: lime;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .sugerencias button {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+      border-radius: 20px;
+      border: 1px solid #aaa;
+      background: white;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .info-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .info-section h2 {
+      font-size: 24px;
+      text-align: center;
+      letter-spacing: 5px;
+      color: #267c9c;
+    }
+
+    .info-section .content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    .info-section .text {
+      width: 55%;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .info-section .image {
+      width: 40%;
+      height: 200px;
+      background: #ddd;
+      border-radius: 15px;
+    }
+
+    .clientes {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .clientes h3 {
+      letter-spacing: 2px;
+      color: #267c9c;
+    }
+
+    .testimonial {
+      background: linear-gradient(to right, #67c7cc, #aadcf0);
+      margin: 30px auto;
+      padding: 20px;
+      max-width: 600px;
+      border-radius: 15px;
+      font-size: 15px;
+    }
+
+    footer {
+      background-color: #c6e6ea;
+      padding: 30px 20px;
+      display: flex;
+      justify-content: space-around;
+      font-size: 14px;
+      flex-wrap: wrap;
+    }
+
+    footer div {
+      margin-bottom: 15px;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      background: #b5d8de;
+      padding: 10px;
+      font-size: 13px;
+    }
+    .testimonial-carousel {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 10px;
+}
+
+.carousel-track {
+  display: inline-flex;
+  gap: 20px;
+  padding: 10px;
+}
+
+.carousel-track .testimonial {
+  display: inline-block;
+  width: 300px;
+  background: linear-gradient(to right, #67c7cc, #aadcf0);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: left;
+  font-size: 15px;
+  vertical-align: top;
+  white-space: normal; /* <- importante */
+  overflow: hidden;
+}
+
+
+.stars {
+  color: gold;
+  font-size: 18px;
+}
+
+.opinion-form {
+  margin-top: 30px;
+  background: #f0f8ff;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.opinion-form input,
+.opinion-form textarea {
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  font-family: inherit;
+  width: 100%;
+}
+
+.opinion-form button {
+  background: #267c9c;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.star-rating {
+  display: flex;
+  gap: 5px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.star-rating .star {
+  color: lightgray;
+}
+
+.star-rating .star.selected,
+.star-rating .star.hover {
+  color: gold;
+}
+ 
+.opinion {
+  border-radius: 15px;
+  padding: 1.5rem;
+  background: linear-gradient(to right, #aee1f9, #b5e4f5);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 300px;
+  word-wrap: break-word;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    Teléfono: 81 0000 0000 &nbsp;&nbsp;|&nbsp;&nbsp; Whatsapp: (812) 000 0000 &nbsp;&nbsp;|&nbsp;&nbsp; 📧 Correo: loren@LOENISPUN.com
+  </header>
+
+  <nav>
+    <a href="{{ url_for('principal') }}">Inicio</a>
+    <a href="{{ url_for('quienes_somos') }}">¿Quiénes somos?</a>
+    <a href="{{ url_for('chatbot') }}">Prueba nuestro asistente</a>
+    <span style="float:right; margin-right: 20px;">⤴</span>
+  </nav>
+
+  <section class="asistente-container">
+    <div class="asistente-img"></div>
+    <div class="asistente-texto">
+      <img src="{{ url_for('static', filename='IMAGENESWEB/ASISTENTEPNG.png') }}" alt="Asistente">
+      <h2>Prueba Nuestro Asistente Virtual</h2>
+      <div class="pregunta-box">
+        <input type="text" placeholder="Haz una Pregunta">
+        <button>Enviar</button>
+      </div>
+      <div class="sugerencias">
+        <button>¿Cómo puedo saber si mi bebé está creciendo adecuadamente?</button>
+        <button>¿Cuáles son las vacunas obligatorias y a qué edad se aplican?</button>
+        <button>¿Cómo tratar la tos y el resfriado en un niño pequeño?</button>
+        <button>...</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <h2>INNOVANDO LA FORMA DE SERVIR</h2>
+    <img src="IMAGENESWEB/ASISTENTE-AMIGO.jpeg" alt="Asistente" style="position: absolute; top: 650px; left: 780px;" width="250px">
+    <div class="content">
+      <div class="text">
+        En nuestra clínica pediátrica, combinamos experiencia y tecnología para brindar la mejor atención a tu hijo.
+        Ahora, con nuestro asistente virtual, podrás resolver dudas frecuentes al instante, agendar citas y recibir
+        orientación sobre el cuidado infantil, todo de manera rápida y sencilla. Porque tu tranquilidad es nuestra prioridad,
+        seguimos innovando para estar siempre cerca de ti. 💙
+      </div>
+      <div class="image"></div>
+    </div>
+  </section>
+
+  <section class="clientes">
+    <h3>NUESTROS CLIENTES</h3>
+    <div class="testimonial-carousel">
+      <div class="carousel-track">
+        <div class="testimonial">
+          <strong>Mariana López</strong><br>
+          <span class="stars">⭐⭐⭐⭐⭐</span><br>
+          "Excelente atención y calidez. El pediatra siempre resuelve nuestras dudas con paciencia, y ahora con el asistente virtual,
+          es aún más fácil obtener información rápida. ¡Muy recomendado!"
+        </div>
+        <div class="testimonial">
+          <strong>Carlos Méndez</strong><br>
+          <span class="stars">⭐⭐⭐⭐</span><br>
+          "Muy buena atención. El sistema virtual ayuda bastante para resolver dudas en horarios fuera de consulta."
+        </div>
+        <div class="testimonial">
+          <strong>Ana Rivera</strong><br>
+          <span class="stars">⭐⭐⭐⭐⭐</span><br>
+          "Me encantó el asistente, muy útil y fácil de usar. Gran idea para las mamás ocupadas."
+        </div>
+        <div class="testimonial">
+          <strong>Ana Rivera</strong><br>
+          <span class="stars">⭐⭐⭐⭐⭐</span><br>
+          "Me encantó el asistente, muy útil y fácil de usar. Gran idea para las mamás ocupadas."
+        </div>
+      </div>
+    </div>
+  
+    <form class="opinion-form">
+      <h4>Agrega tu opinión</h4>
+      <input type="text" placeholder="Tu nombre" required>
+      
+      <div class="star-rating">
+        <span class="star" data-value="1">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star" data-value="3">★</span>
+        <span class="star" data-value="4">★</span>
+        <span class="star" data-value="5">★</span>
+      </div>
+      
+      <textarea placeholder="Escribe tu experiencia..." required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+  
+
+  <footer>
+    <div>
+      <strong>HORARIOS</strong>
+      <p>Lunes a Viernes: 7:30 AM - 6:00 PM</p>
+      <p>Sábados: 8:00 AM - 2:00 PM</p>
+    </div>
+    <div>
+      <strong>MONTERREY</strong>
+      <p>Alfonso Reyes, Eje Exterior 10,<br>Sin Nombre de Col 28, Zona Valle Poniente,<br>66196 Cdad. Santa Catarina, N.L.</p>
+    </div>
+    <div>
+      <strong>CONTÁCTANOS</strong>
+      <p>Cobertura en: Monterrey, México</p>
+      <p>E-mail: loren@loenispun.com</p>
+      <p>Teléfono: 81 0000 0000</p>
+    </div>
+  </footer>
+
+  <div class="footer-bottom">
+    Copyright © 2025 &nbsp; | &nbsp; S.A. DE C.V. - Aviso de privacidad &nbsp; | &nbsp; Términos y Condiciones
+  </div>
+
+  <script>
+    // Redirige al hacer clic en los botones de sugerencias
+    document.querySelectorAll('.sugerencias button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const pregunta = encodeURIComponent(btn.innerText.trim());
+        window.location.href = `/?pregunta=${pregunta}`;
+      });
+    });
+  
+    // Enviar solo si el input tiene texto
+    const inputPregunta = document.querySelector('.pregunta-box input');
+    const botonEnviar = document.querySelector('.pregunta-box button');
+  
+    botonEnviar.addEventListener('click', () => {
+      const texto = inputPregunta.value.trim();
+      if (texto !== '') {
+        const pregunta = encodeURIComponent(texto);
+        window.location.href = `/?pregunta=${pregunta}`;
+      } else {
+        alert('Por favor, escribe una pregunta antes de enviar.');
+      }
+    });
+
+    const stars = document.querySelectorAll('.star-rating .star');
+  let rating = 0;
+
+  stars.forEach(star => {
+    star.addEventListener('mouseover', () => {
+      const val = parseInt(star.dataset.value);
+      stars.forEach(s => s.classList.toggle('hover', parseInt(s.dataset.value) <= val));
+    });
+
+    star.addEventListener('mouseout', () => {
+      stars.forEach(s => s.classList.remove('hover'));
+    });
+
+    star.addEventListener('click', () => {
+      rating = parseInt(star.dataset.value);
+      stars.forEach(s => s.classList.toggle('selected', parseInt(s.dataset.value) <= rating));
+    });
+  });
+
+  // Formulario
+  document.querySelector('.opinion-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const nombre = e.target.querySelector('input').value.trim();
+    const texto = e.target.querySelector('textarea').value.trim();
+
+    if (nombre && texto && rating > 0) {
+      alert(`Gracias ${nombre} por tu opinión de ${rating} estrella(s)`);
+      e.target.reset();
+      stars.forEach(s => s.classList.remove('selected'));
+      rating = 0;
+    } else {
+      alert('Por favor, llena todos los campos y selecciona una calificación.');
+    }
+  });
+  </script>
+  
+
+</body>
+</html>
