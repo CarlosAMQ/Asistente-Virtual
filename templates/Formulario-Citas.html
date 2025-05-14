@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulario de Citas - Clínica Pediátrica</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles2.css') }}">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Agendar Nueva Cita</h1>
+
+    <form id="formulario-cita">
+      <label for="medico">Médico:</label>
+      <select id="medico" required>
+        <option value="">Seleccione un médico</option>
+        <option>Dra. González</option>
+        <option>Dr. Ramírez</option>
+        <option>Dra. Herrera</option>
+      </select>
+
+      <label for="paciente">Paciente:</label>
+      <select id="paciente" required>
+        <option value="">Seleccione un paciente</option>
+        <option>Sofía Ramírez</option>
+        <option>Martín Pérez</option>
+        <option>Lucas Fernández</option>
+        <option>Ana Torres</option>
+      </select>
+
+      <div class="fila">
+        <div>
+          <label for="fecha">Fecha:</label>
+          <input type="date" id="fecha" required />
+        </div>
+        <div>
+          <label for="hora">Hora:</label>
+          <input type="time" id="hora" required />
+        </div>
+      </div>
+
+      <label for="consulta">Tipo de consulta:</label>
+      <select id="consulta" required>
+        <option value="">Seleccione</option>
+        <option>Revisión</option>
+        <option>Urgencia</option>
+        <option>Vacunación</option>
+        <option>Control</option>
+      </select>
+
+      <button type="submit">Guardar</button>
+    </form>
+
+    <p id="mensaje" style="margin-top: 15px; font-weight: bold;"></p>
+
+    <!-- Enlace para ir a ver pacientes -->
+    <a href="{{ url_for('Gestión-Pacientes') }}" class="boton-link">Ver lista de pacientes</a>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
